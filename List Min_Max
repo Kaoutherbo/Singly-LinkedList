@@ -4,17 +4,17 @@ struct node{
 int DATA;
 struct node*next; 
 };
-int Add_Node(struct node*l,int i){
+int Add_Node(struct node*list,int data){
  struct node*p;
  p=(struct node*)malloc(sizeof(struct node));
   if(l==NULL){
  
-  p->DATA =i+1;
+  p->DATA =data;
   p->next=NULL;
   l=p;
   }
   else{
-   p->DATA=i+1;
+   p->DATA=data;
    p->next=NULL;
    l=p;
   }
