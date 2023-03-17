@@ -82,9 +82,10 @@ void displayList(struct node *head)
             temp = temp->link;             
         }
     }}
-//procedure that add node at the begining of list
-struct node* add_node_in_start(int n,struct node *head){
-	struct node *new_node;
+//procedure that add a node at the end 
+struct node* add_node_at_end(int n,struct node *head){
+	struct node *new_node,*snode;
+	
 new_node=(struct node *)malloc(sizeof(struct node));
 	if(new_node==NULL)
 	{
@@ -93,7 +94,13 @@ new_node=(struct node *)malloc(sizeof(struct node));
 	else
 	{
 		new_node->data=n;
-		new_node->link=head;
-		head=new_node;
-	
-    }return head;}
+		new_node->link=NULL;
+		snode=head;
+		while(snode->link!=NULL)
+		{
+			snode=snode->link;
+		}
+		snode->link=new_node;		
+     }
+return head;
+}
