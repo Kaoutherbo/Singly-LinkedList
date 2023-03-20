@@ -111,7 +111,7 @@ struct node* delete_list(struct node*head){
    head=head->link;
    free(head);
   }
-  head->link=NULL;
+  head=NULL;
   free(head);
   return head;
  }}
