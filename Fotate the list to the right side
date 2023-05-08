@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+#include "linked list.h"
+
+struct node* delete_even(struct node *head){
+
+ if(head==NULL)return head;
+
+ if(head->link==NULL){
+
+  if(head->data%2==0){
+
+   free(head);
+
+   return NULL;
+
+   }
+
+   else
+
+   {
+
+    return head;
+
+   }
+
+  }
+
+ else{
+
+  struct node *temp=head;
+
+  if(temp->data%2==0){
+
+   head=head->link;
+
+   free(temp);
+
+  head->link=delete_even(head->link);
+
+   return head;
+
+  }
+
+  else
+
+  {
+
+  head->link=delete_even(head->link);
+
+   return head;
+
+  }
+
+ }
+
+}
+
+int main()
+
+{
+
+ struct node *list;
+
+ int n;
+
+ printf("How many nodes you want ? ");
+
+ scanf("%d",&n);
+
+   list=createList(n);
+
+ printf("The list is :\n ");
+
+   displayList(list);
+
+ list=delete_even(list);
+
+ printf("\nThe list after deletion is :\n ");
+
+   displayList(list);
+
+ 
+
+ return 0;
+
+}
